@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.urls import path, include
+from .api.router import router
 
 app_name='posts'
 urlpatterns =[
@@ -22,4 +24,6 @@ urlpatterns =[
 
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
+
+    path('api/', include(router.urls)),
 ]   
